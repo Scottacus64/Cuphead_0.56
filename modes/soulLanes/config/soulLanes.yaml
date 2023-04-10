@@ -7,7 +7,7 @@ mode:
 
 counters:
   contract_counter:
-    count_events: soul_lanes_complete, lastBall
+    count_events: soul_lanes_lit_complete, lastBall #soul_lanes_complete posts twice once as lit, once as unlit
     events_when_hit: soul_lanes_done # when the lanes are complete this goes up by one
     starting_count: 1
     direction: up
@@ -68,7 +68,7 @@ variable_player:
     score: 100
   s_soul_L_active:
     score: 100
-  soul_lanes_complete:
+  soul_lanes_unlit_complete:  # this allows scoring on the unlit which posts later after the lit is posted
     score: 1000
 
 event_player:
@@ -82,7 +82,7 @@ sound_player:
     s_soul_O_active: soulLaneSound
     s_soul_U_active: soulLaneSound
     s_soul_L_active: soulLaneSound
-    soul_lanes_complete: soulComplete
+    soul_lanes_lit_complete: soulComplete
 
 show_player:
   soul_lanes_lit_complete:

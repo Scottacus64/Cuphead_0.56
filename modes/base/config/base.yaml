@@ -294,7 +294,7 @@ show_player:
 #  current_player.flag == 0:
   special7End:
     special7Flash: stop
-    7_on: stop
+    7_on: play
   sevens:
     special7Flash: stop
     7_on: play
@@ -1151,7 +1151,7 @@ widgets: # these are the widgets that get displayed on the boss_slide
   ball_in_play_widget:
     - type: text
       text: BALL IN PLAY (ball)
-      font_name: aafia
+      font_name: Aafia
       font_size: 38
       anchor_y: top
       y: 330
@@ -1160,7 +1160,7 @@ widgets: # these are the widgets that get displayed on the boss_slide
   Game_over_widget:
     - type: text
       text: GAME OVER
-      font_name: aafia
+      font_name: Aafia
       font_size: 50
       anchor_y: top
       y: 330
