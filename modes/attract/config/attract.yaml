@@ -292,7 +292,7 @@ widgets:
   opp_widget:
     - type: text
       text: POWERED BY
-      font_name: aafia
+      font_name: Aafia
       font_size: 75
       anchor_y: top
       y: 590
@@ -308,7 +308,7 @@ widgets:
   mpf_widget:
     - type: text
       text: POWERED BY
-      font_name: aafia
+      font_name: Aafia
       font_size: 75
       anchor_y: top
       y: 590
@@ -324,7 +324,7 @@ widgets:
   cobrapin_widget:
     - type: text
       text: POWERED BY
-      font_name: aafia
+      font_name: Aafia
       font_size: 75
       anchor_y: top
       y: 590
@@ -351,7 +351,7 @@ widgets:
   soundPaused_widget:
    - type: text
      text: ATTRACT MUSIC ON
-     font_name: aafia
+     font_name: Aafia
      font_size: 75
      anchor_y: bottom
      y: 200
@@ -362,7 +362,7 @@ widgets:
   soundStarted_widget:
   - type: text
     text: ATTRACT MUSIC OFF
-    font_name: aafia
+    font_name: Aafia
     font_size: 75
     anchor_y: bottom
     y: 200

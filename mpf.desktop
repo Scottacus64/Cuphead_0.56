@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=MPF
+Comment=Mission Pinball
+Exec=/home/mpf/Cuphead/run.sh
+Path=/home/mpf/Cuphead/
+Terminal=false
+Type=Application

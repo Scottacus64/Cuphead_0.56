@@ -5,10 +5,10 @@ hardware:
     driverboards: gen2
 
 opp:
-    ports: COM11, COM12 # these are the COM ports on the Cobrapin board
+    ports: /dev/ttyACM0, /dev/ttyACM1 # COM11, COM12 these are the COM ports of the Cobrapin board
     chains:
-        0: COM11 # the zero board is on COM 9 and the..
-        1: COM12 # one board is on COM 1
+        0: /dev/ttyACM0 # COM11 the zero board is on COM 11 and the..
+        1: /dev/ttyACM1 # COM12 one board is on COM 12
     debug: True
 
 ###############################################################################################
@@ -183,7 +183,7 @@ widgets:
     text: PLAYER 1 ADDED!
     z: 110
     color: F6BE28
-    font_name: aafia
+    font_name: Aafia
     font_size: 90
     anchor_y: bottom
     y: 230
@@ -197,7 +197,7 @@ widgets:
     text: PLAYER 2 ADDED!
     z: 110
     color: F6BE28
-    font_name: aafia
+    font_name: Aafia
     font_size: 90
     anchor_y: bottom
     y: 230
