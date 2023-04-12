@@ -27,15 +27,7 @@ sound_player: # plays the attract music
   s_right_flipper_active:
     attract:
       action: stop
-#track_player:
-#  videoOn: # if the event named "videoOn" is posted
-#    music:
-#      action: pause # pause the music by..
-#      fade: .25 sec # fading over .25 seconds
-#  videoOff: # if the enven "videoOff" is posted
-#    music:
-#      action: play # play the music again by..
-#      fade: .25 sec #fading in over .25 seconds
+
 
 ###############################################################################################
 #                                       SLIDES                                                #
@@ -149,6 +141,32 @@ slides: # these are the attract video slides
     background_color: 111AD3
     widgets:
     - widget: cobrapin_widget
+  thank_you_slide4:
+    background_color: 111AD3
+    widgets:
+    - type: text
+      text: ORANGE PI 5 MPF
+      font_name: Aafia
+      font_size: 75
+      anchor_y: top
+      y: 590
+      z: 150
+      opacity: 1
+    - type: text
+      text: INTEGRATION BY
+      font_name: Aafia
+      font_size: 75
+      anchor_y: top
+      y: 500
+      z: 150
+      opacity: 1
+    - type: image
+      image: jsm174
+      anchor_x: left
+      anchor_y: bottom
+      x: 250
+      y: 50
+      z: 150
   highScore1_slide:
     background_color: 111AD3
     widgets:
@@ -337,6 +355,8 @@ widgets:
       x: -60
       y: 50
       z: 150
+
+
   playerAddedBackground_widget:
    - type: image
      image: playerAddedBackground_image

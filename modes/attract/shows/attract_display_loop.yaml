@@ -9,6 +9,13 @@
     bottom_slide:
       target: lower
 
+- duration: 3s
+  slides:
+    thank_you_slide4:
+      target: middle
+    bottom_slide:
+      target: lower
+
 - duration: 1.5s
   slides:
     highScore1_slide:
