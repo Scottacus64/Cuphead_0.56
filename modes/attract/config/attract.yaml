@@ -161,7 +161,7 @@ slides: # these are the attract video slides
       z: 150
       opacity: 1
     - type: image
-      image: jsm174
+      image: jsm174_image
       anchor_x: left
       anchor_y: bottom
       x: 250
@@ -356,7 +356,6 @@ widgets:
       y: 50
       z: 150
 
-
   playerAddedBackground_widget:
    - type: image
      image: playerAddedBackground_image
@@ -368,6 +367,7 @@ widgets:
      opacity: 0
      animations:
        player_added: contract_animation
+
   soundPaused_widget:
    - type: text
      text: ATTRACT MUSIC ON
@@ -379,6 +379,7 @@ widgets:
      opacity: 0
      animations:
        s_left_flipper_active: contract_animation
+
   soundStarted_widget:
   - type: text
     text: ATTRACT MUSIC OFF
@@ -478,6 +479,9 @@ images: # images must be defined
     file: mpf.png
   cobrapin_image:
     file: cobrapin.png
+  jsm174_image:
+    file: jsm174.png
+  
 
 
 ###############################################################################################
