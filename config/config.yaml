@@ -6,9 +6,9 @@ hardware:
 
 opp:
     ports: /dev/ttyACM0, /dev/ttyACM1 # COM11, COM12 these are the COM ports of the Cobrapin board
-    chains:
-        0: /dev/ttyACM0 # COM11 the zero board is on COM 11 and the..
-        1: /dev/ttyACM1 # COM12 one board is on COM 12
+  #  chains:
+  #      0: /dev/ttyACM0 # COM11 the zero board is on COM 11 and the..
+  #      1: /dev/ttyACM1 # COM12 one board is on COM 12
     debug: True
 
 ###############################################################################################
@@ -160,11 +160,15 @@ slides:
       - widget: player_added_widget_2
       - widget: player_added_widget_1
 
+###############################################################################################
+#                                      EVENTS                                                 #
+###############################################################################################
+
 event_player:
-  player_added.2{num==1}:
+  player_added{num==1}:
     add_player_1:
       priority: 510
-  player_added.3{num==2}:
+  player_added{num==2}:
     add_player_2:
       priority: 550
 

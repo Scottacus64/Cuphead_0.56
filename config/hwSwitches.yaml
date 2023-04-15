@@ -37,8 +37,6 @@ switches:
   s_sling_R:
     number: 0-0-11
     tags: slingSw
-
-
   s_start:
     number: 1-0-2
     tags: start

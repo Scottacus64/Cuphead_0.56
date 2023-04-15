@@ -92,14 +92,11 @@ show_player:
       show_tokens:
         lights: soul_lanes
   soul_lanes_done{count==2}:
-    2x_on:
-      show_tokens:
-        lights: l_2x
+    2x_on: play
   soul_lanes_done{count==3}:
-    3x_on:
-      show_tokens:
-        lights: l_3x
+    2X_on: stop
+    3x_on: play
   soul_lanes_done{count==4}:
-    4x_on:
-      show_tokens:
-        lights: l_4x
+    3x_on: stop
+    4x_on: play
+

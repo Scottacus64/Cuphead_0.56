@@ -48,7 +48,10 @@ variable_player:
   timer_bonusCountDown_tick{current_player.contracts>0}:
     contracts: -1
     score: 1000 * (current_player.bonus_multiplier)
-
+  payOutBonus: 
+    flag:
+      int: 0
+      action: set
 
 sound_player:
   timer_bonusCountDown_tick{current_player.bonus_multiplier==1}: bonusPayout
