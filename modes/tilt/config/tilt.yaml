@@ -1,3 +1,5 @@
+
+
 #config_version=5
 
 tilt:
@@ -6,6 +8,10 @@ tilt:
   reset_warnings_events: ball_started
   settle_time: 5s
   multiple_hit_window: 1500ms
+
+###############################################################################################
+#                                      SLIDES                                                 #
+###############################################################################################
 
 slides:
   _overwrite: true   # this is important to overwrite the existing slides
@@ -24,7 +30,7 @@ slides:
         font_name: Aafia
         color: red
         font_size: 100
-    expire: 1S
+    expire: 1s
   tilt:
     widgets:
       - type: text

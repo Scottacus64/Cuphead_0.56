@@ -1,2 +1,2 @@
 #!/bin/bash
-gnome-terminal -- bash -c "cd /home/mpf/Cuphead && mpf both -X"
+gnome-terminal -- bash -c "cd /home/mpf/cuphead && mpf both"
