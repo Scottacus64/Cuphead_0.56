@@ -30,16 +30,6 @@ counters:
     reset_on_complete: true
     disable_on_complete: false
 
-#accruals:
-#  greyFigure1:
-#    events:
-#      - player_added{current_player.can_play == 1}
-#    events_when_complete: greyOff1
-#  greyFigure2:
-#    events:
-#      - player_added{current_player.can_play == 2}
-#    events_when_complete: greyOff2
-
 ###############################################################################################
 #                                     TIMERS                                                  #
 ###############################################################################################
@@ -298,6 +288,7 @@ show_player:
     6_on: stop
   advance_lane{count==1 and current_player.flag > 0}:
     1_only_on: play
+
   bank_done{count==1}:  # if bank_done is posted and the count value is 1 then run the show 1000_on
     1000_on: play
   bank_done{count==2}:
@@ -327,6 +318,7 @@ show_player:
   bank_done{count==10}: 
     9000_on: stop
     10000_on: play
+
   special7Go:
     special7Flash:
       speed: 2
@@ -336,6 +328,7 @@ show_player:
   sevens:
     special7Flash: stop
     7_on: play
+
   timer_perdMB_timer_started:
     hurryUpMB:
       speed: 1
@@ -544,6 +537,7 @@ event_player: # this event player looks for the x_play event that is posted by t
   wally_play:
     start_boss:
       bossname: wally
+
   slide_boss_slide_active{current_player.number == 1}: player_up_1 # this combines the boss slide being played and player 1 active to play a player 1 up slide
   slide_boss_slide_active{current_player.number == 2}: player_up_2
   advance_perdition{count==1}: perd1 # defines first entry into perdition as perd1 this is needed...
@@ -562,6 +556,10 @@ event_player: # this event player looks for the x_play event that is posted by t
     - rollOverClear
   timer_dropTargetCupCheck_timer_complete: resetCupAgain #this will reset the CUP dt's if not raised on the first try
   timer_dropTargetMugCheck_timer_complete: resetMugAgain
+  timer_spinner_timer_complete{current_player.dice_pips==7 and current_player.flag == 0}: special7Go # if the player rolls a 7, post special7Go
+  timer_special7_timer_complete: special7End # show that the timer is complete
+  timer_spinner_timer_complete{current_player.dice_pips==7 and current_player.flag > 0}: sevens # post sevens to show that 7000 has been collected
+# Not sure if the following code ever gets called because Base mode may end before the Event "mode_bonusEndOfBall_stopped" is ever posted
   mode_bonusEndOfBall_stopped: # sets the bonus multiplier to 0 on a new ball
     bonus_multiplier:
       action: set
@@ -572,9 +570,6 @@ event_player: # this event player looks for the x_play event that is posted by t
     current_player_flag:
       action: set
       int: 0
-  timer_spinner_timer_complete{current_player.dice_pips==7 and current_player.flag == 0}: special7Go # if the player rolls a 7, post special7Go
-  timer_special7_timer_complete: special7End # show that the timer is complete
-  timer_spinner_timer_complete{current_player.dice_pips==7 and current_player.flag > 0}: sevens # post sevens to show that 7000 has been collected
 
 ###############################################################################################
 #                                       SLIDES                                                #
@@ -1075,7 +1070,6 @@ widgets: # these are the widgets that get displayed on the boss_slide
          - property: end_frame
            value: (3)
            duration: 0
-
   reel_2_10k_widget:
    - type: image
      image: reel21_image
@@ -1108,6 +1102,7 @@ widgets: # these are the widgets that get displayed on the boss_slide
          - property: end_frame
            value: (1)
            duration: 0
+
   figure_1_widget: # this widget is for the cuphead static image
    - type: image
      image: small_cuphead_image
@@ -1322,11 +1317,11 @@ images: # all images used in widgets must be defined here, note that
   contract10_image:
     file: contract10.png
   mugman_up_image:
-    file: mugman.zip       # zip files with animation sequences.  MPF will unpack these
+    file: mugman.zip          # zip files with animation sequences.  MPF will unpack these
   cuphead_up_image:           # zipped folders and play the sequence of pngs in order from
-    file: cuphead.zip      # first to last.  There must not be any files that are not
-  knockout_image:          # images in the folder so you cannot use files zipped on a
-    file: knockout.zip     # mac and you cannot zip a folder because that will put the
+    file: cuphead.zip         # first to last.  There must not be any files that are not
+  knockout_image:             # images in the folder so you cannot use files zipped on a
+    file: knockout.zip        # mac and you cannot zip a folder because that will put the
   ch_perdition1_image:        # folder in the zip.  You must select all of the png images
     file: ch_perdition1.png   # and use 7 zip to zip only them.
   ch_perdition2_image:
@@ -1370,7 +1365,6 @@ images: # all images used in widgets must be defined here, note that
   reel24_image:
     file: reel24.zip
     frame_persist: true
-#    image_template: reels
   reel_0_image:
     file: reel0.png
 
