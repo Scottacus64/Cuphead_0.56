@@ -1,5 +1,5 @@
 # Cuphead
-This is a Mission Pinball Framework (MPF) project for a Cuphead Pinabll homebrew table.
+This is a Mission Pinball Framework (MPF) project for a Cuphead homebrew pinball table.
 
 ## Hardware
 The configuarion is set up for an Orange Pi 5 interfacing with a Cobrapin controller board.
