@@ -44,10 +44,10 @@ timers:
     control_events:
       - action: restart
         event: s_spinner_active
-  special7_timer: #this timer will be active if a 7 is rolled and if another 7 is rolled while active, 7000 points are awarded
+  special7_timer: # this timer will be active if a 7 is rolled and if another 7 is rolled while active, 7000 points are awarded
     direction: up
     start_value: 1
-    end_value: 30
+    end_value: 27
     tick_interval: 1s
     debug: True
     control_events:
@@ -55,6 +55,19 @@ timers:
         event: special7Go
       - action: stop
         event: sevens
+  special7HurryUp_timer: # this timer flashes the 7 quickly to let the player know that time is running out
+    direction: up
+    start_value: 1
+    end_value: 3
+    tick_interval: 1s
+    debug: true
+    control_events:
+      - action: restart
+        event: timer_special7_timer_complete
+      - action: stop
+        event: sevens
+      - action: stop
+        event: special7Go
   perditionPost_timer: # this timer counts for 1 second after the perdition MB has started to trigger raising the perdition post
     direction: down
     start_value: 2
@@ -315,13 +328,16 @@ show_player:
   bank_done{count==9}:
     8000_on: stop
     9000_on: play
-  bank_done{count==10}: 
+  bank_done{count==10}:
     9000_on: stop
     10000_on: play
 
   special7Go:
     special7Flash:
       speed: 2
+  timer_special7HurryUp_timer_started: 
+    special7Flash:
+      speed: 4
   special7End7:
     special7Flash: stop
     7_on: play
@@ -564,20 +580,9 @@ event_player: # this event player looks for the x_play event that is posted by t
   timer_dropTargetCupCheck_timer_complete: resetCupAgain #this will reset the CUP dt's if not raised on the first try
   timer_dropTargetMugCheck_timer_complete: resetMugAgain
   timer_spinner_timer_complete{current_player.dice_pips==7 and current_player.flag == 0}: special7Go # if the player rolls a 7, post special7Go
-  timer_special7_timer_complete{current_player.dice_pips==7}: special7End7 # show that the timer is complete with 7
-  timer_special7_timer_complete{current_player.dice_pips!=7}: special7End # show that the timer is complete not 7
+  timer_special7HurryUp_timer_complete{current_player.dice_pips==7}: special7End7 # show that the timer is complete with 7
+  timer_special7HurryUp_timer_complete{current_player.dice_pips!=7}: special7End # show that the timer is complete not 7
   timer_spinner_timer_complete{current_player.dice_pips==7 and current_player.flag > 0}: sevens # post sevens to show that 7000 has been collected
-# Not sure if the following code ever gets called because Base mode may end before the Event "mode_bonusEndOfBall_stopped" is ever posted
-  mode_bonusEndOfBall_stopped: # sets the bonus multiplier to 0 on a new ball
-    bonus_multiplier:
-      action: set
-      int: 0
-    current_player_bonus_multiplier:
-      action: set
-      int: 0
-    current_player_flag:
-      action: set
-      int: 0
 
 ###############################################################################################
 #                                       SLIDES                                                #
