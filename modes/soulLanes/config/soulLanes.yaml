@@ -94,9 +94,7 @@ show_player:
   soul_lanes_done{count==2}:
     2x_on: play
   soul_lanes_done{count==3}:
-    2X_on: stop
     3x_on: play
   soul_lanes_done{count==4}:
-    3x_on: stop
     4x_on: play
 
